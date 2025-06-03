@@ -1,0 +1,10 @@
+\#include<stdio.h>
+int main(){
+	char name[]={'L','U','C','K','N','O','W'};
+	char city[]="LUCKNOW"  ;
+	char *location="Lucknow" ;
+	printf("%s\n",name);
+	printf("%s\n",city);
+	printf("%s\n",location);
+	return 0;
+}

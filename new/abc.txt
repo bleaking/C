@@ -1,0 +1,7 @@
+total 100
+-rw-rw-r-- 1 uppercase uppercase 96986 Dec  5 17:02 abcd.txt
+-rw-rw-r-- 1 uppercase uppercase     0 Dec  6 16:25 abc.txt
+-rw-rw-r-- 1 uppercase uppercase     0 Dec  6 16:24 cut
+-rw-rw-r-- 1 uppercase uppercase   265 Dec  6 16:17 data.txt
+-rw-rw-r-- 1 uppercase uppercase     0 Dec  6 16:23 ls
+-rw-rw-r-- 1 uppercase uppercase     0 Dec  6 16:24 tot

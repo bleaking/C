@@ -1,0 +1,12 @@
+!!! NEW PROGRAM !!!
+*tid of program = 380598080
+*pid of this program = 6419
+main process
+pid of main 6417
+tid of main thread 1607538496
+pid = 6417
+parent sustains
+parent's pid = 6417
+tid in parent = 1602225856
+main process
+tid in main 1602225856

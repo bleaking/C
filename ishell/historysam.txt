@@ -1,0 +1,5 @@
+ls -l
+man fprints
+man fprintf
+history
+q

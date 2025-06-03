@@ -1,0 +1,63 @@
+#include"ishell.h"
+int getargv(const char*, const char*, char***);
+int main(int argc,char* argv[]){
+        char** chargv;
+	char inbuf[MAX_BUFFER];
+	pid_t pid;
+	while(1){
+                fputs("ishell$-",stdout);
+                fgets(inbuf,MAX_BUFFER,stdin);
+		if(strcmp(inbuf,QUIT_STRING)==0) exit(0);
+		else if((fgets(inbuf,MAX_BUFFER,stdin))==NULL) continue;
+		inbuf[strlen(inbuf)-1]='\0';
+                switch(pid=fork()){
+                        case -1:
+                                printf("Unable To Fork\n");
+                                break;
+                        case 0:
+                                if(getargv(inbuf," ",&chargv)>0){   
+					execvp(chargv[0],chargv);
+				}
+				break;
+                        default:
+                                wait(NULL);
+				break;
+                }
+        }
+        return 0;
+}
+int getargv(const char* s, const char* delims, char*** argvp){
+	int error,i,errorno,numtokens=0;
+	const char* snew;
+	char* t;
+	printf("p1\n");
+	if((s==NULL)||(delims==NULL)||(argvp==NULL)){
+	        errorno=EINVAL;
+	        return -1;
+	}
+	*argvp=NULL;
+	snew=s+strspn(s,delims);
+	if((t=malloc(strlen(snew)+1))==NULL) return -1;
+	strcpy(t,snew);
+	numtokens=0;
+	if(strtok(t,delims)!=NULL){
+		for(numtokens=1;strtok(NULL,delims)!=NULL;numtokens++);
+	}
+	if((*argvp=malloc((numtokens+1)*sizeof(char*)))==NULL){
+	        error=errorno;
+		free(t);
+		errorno=error;
+		return -1;
+	}
+	printf("p3\n");
+	if(numtokens==0) free(t);
+	else{
+		strcpy(t,snew);
+		**argvp=strtok(t,delims);
+		for(i=1;i<numtokens;i++)
+			*((*argvp)+i)=strtok(NULL,delims);
+	}
+	*((*argvp)+numtokens)=NULL;
+	printf("%d\n",numtokens);
+	return numtokens;
+}

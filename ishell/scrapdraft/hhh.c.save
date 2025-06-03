@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<glibc.h>
+#define BUFFER 250
+int main(){
+	char buf[BUFFER];
+	ssize_t rstr;
+	int his=fopen("/home/uppercase/Desktop/mydesk/ishell/.history/historycmd.txt",S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
+	while(1){
+		fgets(buf,BUFFER,stdin);
+		while(rstr=seek(buf,BUFFER))
+	}
+}

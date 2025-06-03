@@ -1,0 +1,12 @@
+main process
+pid = 10230
+Child born
+child's pid = 10233
+tid in child = 33556160
+main process
+pid = 10230
+parent sustains
+parent's pid = 10230
+tid in parent = 33556160
+main process
+tid in main 33556160
